@@ -22,6 +22,10 @@ def getSenha(self):
 def setSenha(self, senha):
     self._acesso = acesso
 
+# Acesso "1" - Administrador
+# Acesso "2" - Gerente
+# Acesso "3" - Funcionário 
+
 '''
 Construtores (com parâmetros e sem)
 Agregação

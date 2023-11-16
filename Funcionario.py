@@ -1,6 +1,6 @@
-class Funcionario (Pessoa, Usuario):
-    def __init__ (self, id, nome, acesso, funcao):
-        super().__init__(id, nome, endereco)
+class Funcionario ( Usuario):
+    def __init__ (self, id, nome, acesso, funcao, user, senha, telefone):
+        super().__init__(id, nome, telefone)
         super().__init__(user, acesso, senha)
         self._funcao = funcao
 
