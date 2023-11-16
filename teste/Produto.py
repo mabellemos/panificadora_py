@@ -1,23 +1,29 @@
 caminho = 'C:\\Users\\Thiago\\Desktop\\Projeto Mauricio\\panificadora_py\\database\\produto.txt'
 class Produto:
-    def __init__(self, nome, valor,unidade):
+    #nome = paof; valor = 0.25; validade = perecível\\não;  
+    def __init__(self, nome, valor,unidade, validade):
         self._nome = nome
         self._valor = valor
         self._unidade = unidade
+        self._validade = validade
 
-    def getValor(self): 
+    def getNome(self): 
+        return self._nome
+    def getValor(self):
         return self._valor
     def getUnidade(self):
         return self._unidade
-    def getId(self):
-        return self._nome
+    def getValidade(self):
+        return self._validade
     
+    def setId(self, nome):
+        self._nome = nome
     def setValor(self, valor):
         self._valor = valor
     def setUnidade(self, unidade):
         self._unidade = unidade
-    def setId(self, nome):
-        self._nome = nome
+    def setValidade(self, validade):
+        self._unidade = validade
 
     def cadastrarProduto (self): # Cria função de cadastrar produto
         # o "open" abre o arquivo, o "with" serve para após fazermos o que precisamos no arquvio ele ser fechado corretamente. 
@@ -26,7 +32,7 @@ class Produto:
         with open (caminho , 'a') as arquivo:
             # o "arquivo.write" serve para falar que vou escrever (por isso o write) dentro do .txt (representado pela varíavel arquivo)
             # a varável "self._nome", recebe o valor da váriavel nome que foi guardada num obejto da classe produto criado no cadastro 
-            arquivo.write(f"{self._nome},{self._valor},{self._unidade}")
+            arquivo.write(f"{self._nome},{self._valor},{self._unidade},{self._validade}")
             print("Produto foi cadastrado com sucesso!")
     @staticmethod
     def mostrarProdutos(): #Cria uma função para mostrar os prdutos no estoque
@@ -42,8 +48,8 @@ class Produto:
                     # da string, o split vai separar a string em uma lista, usando a ',' como delimitador exemplo ["paoc","0.50", "20"]
                     # e após isso é atribuido as varáveis os elementos da lista na ordem.            
                     if linha.strip():        
-                        nome, valor, unidade = linha.strip().split(',')
-                        print(f"Nome: {nome}, Valor: {valor}, Unidade: {unidade}")
+                        nome, valor, unidade, validade = linha.strip().split(',')
+                        print(f"Nome: {nome}, Valor: {valor}, Unidade: {unidade}, Validade: {validade}")
     
     @staticmethod # Botei esse método como estático, pois ele não precisa da classe para funcionar
     def excluirProduto(nome): #cria o método e passa o nome como parâmetro
@@ -65,19 +71,22 @@ class Produto:
             linhas = arquivo.readlines()
 
             linhasSalvas = []
+            produtoEncontrado = False
         
             for linha in linhas:
                 if nomeE not in linha:
                     linhasSalvas.append(linha)
+                else:
+                    produtoEncontrado = True
 
-        with open (caminho, 'w') as arquivo:
-            arquivo.writelines(linhasSalvas)
+            if produtoEncontrado:
+
+                with open (caminho, 'w') as arquivo:
+                    arquivo.writelines(linhasSalvas)
         
-        with open (caminho, 'a') as arquivo:
-            arquivo.write(f"{self._nome},{self._valor},{self._unidade}")
-            print("Produto foi alterado com sucesso!")    
-
-
-# pruduto1 = Produto(nome = "Arroz", unidade = 12, valor = 224)
-# pruduto1.mostrarProdutos()
+                with open (caminho, 'a') as arquivo:
+                    arquivo.write(f"{self._nome},{self._valor},{self._unidade},{self._validade}")
+                    print("Produto foi alterado com sucesso!")    
+            else:
+                print("Produto não foi encontrado")                    
 
