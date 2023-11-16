@@ -2,19 +2,20 @@ from Produto import Produto
 
 condicao = True
 
-# while condicao:
-#     print ("Adicione os parâmetros do produto\n")
-#     nome = input("Adicione o nome: ")
-#     valor = float(input("\nAdicione o preço: "))
-#     unidade = int(input("\nAdicione as unidades: "))
+while condicao:
+    print ("Adicione os parâmetros do produto\n")
+    nome = input("Adicione o nome: ")
+    valor = float(input("\nAdicione o preço: "))
+    unidade = int(input("\nAdicione as unidades: "))
+    validade = input("\nAdicione a validade: ")
 
-#     produto = Produto(nome, unidade, valor)
-#     produto.cadastrarProduto()
+    produto = Produto(nome, unidade, valor, validade)
+    produto.cadastrarProduto()
 
-#     alternativa = input("Deseja continuar adicionando produtos?(s/n)")
+    alternativa = input("Deseja continuar adicionando produtos?(s/n)")
 
-#     if alternativa.lower() == "n":
-#         condicao = False
+    if alternativa.lower() == "n":
+        condicao = False
 
 # while condicao:
 #     print ("Qual o nome do produto que vc pretende excluir:\n")
@@ -31,16 +32,17 @@ condicao = True
 
 # Produto.mostrarProdutos()
 
-while condicao: 
-    nomeE = input("Qual o produto que você deseja alterar: ")
-    print("Adicione os novos valores\n")
-    nome = input("Adicione o nome: ")
-    valor = float(input("\nAdicione o valor: "))
-    unidade = int(input("\nAdicione a unidade: "))
+# while condicao: 
+#     nomeE = input("Qual o produto que você deseja alterar: ")
+#     print("Adicione os novos valores\n")
+#     nome = input("Adicione o nome: ")
+#     valor = float(input("\nAdicione o valor: "))
+#     unidade = int(input("\nAdicione a unidade: "))
+#     validade = input("\nQual o tipo da validade: ")
 
-    produto = Produto(nome, valor, unidade)
-    produto.alterarProduto(nomeE)
+#     produto = Produto(nome, valor, unidade, validade)
+#     produto.alterarProduto(nomeE)
 
-    alternativa = input("Deseja continuar adicionando produtos?(s/n)")
-    if alternativa.lower() == "n":
-        condicao = False
+#     alternativa = input("Deseja continuar adicionando produtos?(s/n)")
+#     if alternativa.lower() == "n":
+#         condicao = False
