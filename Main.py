@@ -1,15 +1,14 @@
-import os
+from Usuario import Usuario
 
 print('\n\nPANIFICADORA\n')
 
 usuario = str(input('Usuário: '))
 senha = str(input('Senha: '))
 
-#testes
-usuario1 = "izabel"
-senha1 = "1234"
+#usuario = Usuario(usuario, senha)
+verificado = True
 
-if(usuario == usuario1 and senha == senha1):
+if(verificado == True):
     #os.system("cls")
     print('\nBem-vindo ao Sistema\n')
     while True:
