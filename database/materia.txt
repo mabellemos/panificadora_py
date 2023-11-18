@@ -1,0 +1,5 @@
+sal,2,atacado
+manteiga,5,atacado
+leite,10,italac
+açucar,2,atacado
+farinha,14,donaBenta

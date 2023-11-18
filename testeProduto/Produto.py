@@ -74,10 +74,14 @@ class Produto:
             produtoEncontrado = False
         
             for linha in linhas:
-                if nomeE not in linha:
+
+                verificacao = linha.split(",")
+                
+                if nomeE != verificacao[0]:
                     linhasSalvas.append(linha)
                 else:
                     produtoEncontrado = True
+
 
             if produtoEncontrado:
 
@@ -85,7 +89,7 @@ class Produto:
                     arquivo.writelines(linhasSalvas)
         
                 with open (caminho, 'a') as arquivo:
-                    arquivo.write(f"{self._nome},{self._valor},{self._unidade},{self._validade}")
+                    arquivo.write(f"\n{self._nome},{self._valor},{self._unidade},{self._validade}")
                     print("Produto foi alterado com sucesso!")    
             else:
                 print("Produto não foi encontrado")                    
