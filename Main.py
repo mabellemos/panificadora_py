@@ -6,6 +6,8 @@ user = str(input('Usuário: '))
 senha = str(input('Senha: '))
 
 usuario = Usuario(user, senha)
+userEx = str(input("\nInforme qual usuário deseja alterar no sistema: "))
+usuario.alterarUser(userEx)
 verificado = usuario.logar(user, senha)
 
 # if(verificado == True):
