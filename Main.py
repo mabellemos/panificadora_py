@@ -1,14 +1,20 @@
-from Usuario import Usuario
+#from Usuario import Usuario
+from Funcionario import Funcionario
 
 print('\n\nPANIFICADORA\n')
 
-user = str(input('Usuário: '))
-senha = str(input('Senha: '))
+# user = str(input('Usuário: '))
+# senha = str(input('Senha: '))
 
-usuario = Usuario(user, senha)
-userEx = str(input("\nInforme qual usuário deseja alterar no sistema: "))
-usuario.alterarUser(userEx)
-verificado = usuario.logar(user, senha)
+# usuario = Usuario(user, senha)
+# userEx = str(input("\nInforme qual usuário deseja alterar no sistema: "))
+# usuario.alterarUser(userEx)
+# verificado = usuario.logar(user, senha)
+
+# funcionario = Funcionario("Lucas", "1234", "01", "Lucas Souza", "Entregador")
+# funcionario.salvar("01")
+# funcionario = Funcionario("Vitória", "4321", "02", "Vitória Lima", "Caixa")
+# funcionario = Funcionario("José", "7777", "03", "José Silva", "Atendente")
 
 # if(verificado == True):
 #     #os.system("cls")

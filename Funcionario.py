@@ -2,7 +2,7 @@ caminho = '/workspace/panificadora_py/database/funcionarios.txt'
 from Usuario import Usuario
 
 class Funcionario (Usuario):
-    def __init__ (self, id, nome,funcao, user, senha, telefone):
+    def __init__ (self, user, senha, id, nome, funcao):
         super().__init__(user, senha)
         self._id = id
         self._nome = nome
@@ -28,10 +28,29 @@ def setFuncao(self, funcao):
     self._funcao = funcao
 
 #Métodos da classe
-    def salvar(self):
-        with open (caminho , 'a') as arquivo:
-            arquivo.write(f'{self._id},{self._nome}, {self._funcao}')
-            print("Funcionário foi salvo com sucesso!")
+    def salvar(self, user, senha, id):
+
+        super().salvar(user, senha)
+        funcEncontrado = False
+
+        with open (caminho , 'r') as arquivo:
+            linhas = arquivo.readlines()
+
+            if (len(linhas) == 0):
+                with open (caminho , 'a') as arquivo:
+                    arquivo.write(f"{id},{nome},{funcao}\n")
+                    print("Funcionário foi salvo com sucesso!")
+            else:
+                for linha in linhas:
+                    if id in linha:
+                       funcEncontrado = True
+
+                if funcEncontrado == True:
+                    print("\nNão foi possível cadastrar o funcionário no sistema. Tente novamente!")
+                else:
+                    with open (caminho , 'a') as arquivo:
+                        arquivo.write(f"{id},{nome},{funcao}\n")
+                        print("Funcionário foi salvo com sucesso!")
 
     def exibir(self):
             with open(caminho, 'r') as arquivo:
@@ -40,7 +59,7 @@ def setFuncao(self, funcao):
                 for linha in arquivo:    
                     if linha.strip():        
                         id, nome, funcao = linha.strip().split(',')
-                        print(f'\nID: {id}, Nome: {nome}, Função: {funcao}')
+                        print(f'\nID: {id}\nNome: {nome}\nFunção: {funcao}\nUserName: {super().getUser()}\n')
 
     def excluir(self, id): 
         with open (caminho, 'r') as arquivo:
@@ -54,27 +73,30 @@ def setFuncao(self, funcao):
 
         with open(caminho, 'w') as arquivo: 
             arquivo.writelines(linhasSalvas)
+            print("\nFuncionário ecluído do sistema!")
 
-    def alterarUser(self, id):
-        with open(caminho, 'r') as arquivo:
-            linhas = arquivo.readlines()
+    def alterarFunc(self, id):
+        opc = int(input("\nAlteração de Dados do Funcionário\n\nInforme a informação a ser alterada:\n\n1 - UserName\n2 - Senha3 - Nome\n4 - Função"))
 
-            linhasSalvas = []
-            funcEncontrado = False
-        
-            for linha in linhas:
-                if id not in linha:
-                    linhasSalvas.append(linha)
+        if(opc == 1):
+            with open(caminho, 'r') as arquivo:
+                linhas = arquivo.readlines()
+
+                linhasSalvas = []
+                funcEncontrado = False
+            
+                for linha in linhas:
+                    if id not in linha:
+                        linhasSalvas.append(linha)
+                    else:
+                        funcEncontrado = True
+
+                if funcEncontrado:
+                    with open (caminho, 'w') as arquivo:
+                        arquivo.writelines(linhasSalvas)
+            
+                    with open (caminho, 'a') as arquivo:
+                        arquivo.write(f"{super().getUser()},{super().getSenha()},{id}, {nome}, {funcao}\n")
+                        print("Funcionário alterado com sucesso!")    
                 else:
-                    funcEncontrado = True
-
-            if funcEncontrado:
-                with open (caminho, 'w') as arquivo:
-                    arquivo.writelines(linhasSalvas)
-        
-                with open (caminho, 'a') as arquivo:
-                    arquivo.write(f"{self._user},{self._senha}")
-                    print("Funcionário alterado com sucesso!")    
-            else:
-                print("Funcionário não foi encontrado") 
-
+                    print("Funcionário não foi encontrado") 
