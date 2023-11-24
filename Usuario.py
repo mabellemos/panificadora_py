@@ -19,10 +19,28 @@ class Usuario:
         self._acesso = acesso
 
     #Métodos da classe
-    def salvar(self):
-        with open (caminho , 'a') as arquivo:
-            arquivo.write(f'{self._user},{self._senha}')
-            print("Usuário foi salvo com sucesso!")
+    def salvar(self, user, senha):
+        userEncontrado = False
+        
+        with open (caminho , 'r') as arquivo:
+            linhas = arquivo.readlines()
+
+            if (len(linhas) == 0):
+                with open (caminho , 'a') as arquivo:
+                    arquivo.write(f"{user},{senha}\n")
+                    print("Usuário foi salvo com sucesso!")
+            else:
+                for linha in linhas:
+                    if user in linha:
+                       userEncontrado = True
+
+                if userEncontrado == True:
+                    print("\nNão foi possível cadastrar o usuário no sistema. Tente novamente!")
+                else:
+                    with open (caminho , 'a') as arquivo:
+                        arquivo.write(f"{user},{senha}\n")
+                        print("Usuário foi salvo com sucesso!")
+                    
 
     # def logar(self, user, senha):
     #     with open (caminho, 'r') as arquivo:
@@ -47,41 +65,75 @@ class Usuario:
                         user, senha = linha.strip().split(',')
                         print(f'UserName: {self._user}, Senha: {senha}')
 
-    def excluir(self, nome): 
+    def excluir(self, user): 
         with open (caminho, 'r') as arquivo:
             linhas = arquivo.readlines()
 
             linhasSalvas = [] 
 
             for linha in linhas: 
-                if nome not in linha: 
+                if user not in linha: 
                     linhasSalvas.append(linha)
 
         with open(caminho, 'w') as arquivo: 
             arquivo.writelines(linhasSalvas)
 
-    def alterarUser(self, nome):
-        with open(caminho, 'r') as arquivo:
-            linhas = arquivo.readlines()
+    def alterarUser(self, user):
+        opc = int(input("\nAlteração de Usuário\n\nInforme o que deseja alterar:\n1 - UserName\n2 - Senha\n"))
 
-            linhasSalvas = []
-            usuarioEncontrado = False
-        
-            for linha in linhas:
-                if nome not in linha:
-                    linhasSalvas.append(linha)
+        if(opc == 1):
+            userAlt = str(input("\nInforme o novo UserName do usuário: "))
+            setUser(userAlt)
+
+            with open(caminho, 'r') as arquivo:
+                linhas = arquivo.readlines()
+
+                linhasSalvas = []
+                usuarioEncontrado = False
+            
+                for linha in linhas:
+                    if user not in linha:
+                        linhasSalvas.append(linha)
+                    else:
+                        usuarioEncontrado = True
+
+                if usuarioEncontrado:
+                    with open (caminho, 'w') as arquivo:
+                        arquivo.writelines(linhasSalvas)
+            
+                    with open (caminho, 'a') as arquivo:
+                        arquivo.write(f"{self._user},{self._senha}")
+                        print("UserName alterado com sucesso!")    
                 else:
-                    usuarioEncontrado = True
+                    print("Usuário não foi encontrado")
 
-            if usuarioEncontrado:
-                with open (caminho, 'w') as arquivo:
-                    arquivo.writelines(linhasSalvas)
-        
-                with open (caminho, 'a') as arquivo:
-                    arquivo.write(f"{self._user},{self._senha}")
-                    print("Usuário alterado com sucesso!")    
-            else:
-                print("Usuário não foi encontrado") 
+        elif(opc == 2):
+            senhaAlt = str(input("\nInforme a nova senha do usuário: "))
+            setSenha(senhaAlt)
+
+            with open(caminho, 'r') as arquivo:
+                linhas = arquivo.readlines()
+
+                linhasSalvas = []
+                usuarioEncontrado = False
+            
+                for linha in linhas:
+                    if user not in linha:
+                        linhasSalvas.append(linha)
+                    else:
+                        usuarioEncontrado = True
+
+                if usuarioEncontrado:
+                    with open (caminho, 'w') as arquivo:
+                        arquivo.writelines(linhasSalvas)
+            
+                    with open (caminho, 'a') as arquivo:
+                        arquivo.write(f"{self._user},{self._senha}")
+                        print("Senha alterada com sucesso!")    
+                else:
+                    print("Usuário não foi encontrado")
+        else:
+            print("\nOpção inválida!")
 
 '''
 Construtores (com parâmetros e sem)

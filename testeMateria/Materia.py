@@ -1,4 +1,5 @@
 caminho = 'C:\\Users\\Thiago\\Desktop\\Projeto Mauricio\\panificadora_py\\database\\materia.txt'
+
 class Materia:
     def __init__(self, nome, quantidade, fornecedor):
         self._nome = nome
