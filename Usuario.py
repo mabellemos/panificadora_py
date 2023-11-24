@@ -21,7 +21,7 @@ class Usuario:
     #Métodos da classe
     def salvar(self, user, senha):
         userEncontrado = False
-        
+
         with open (caminho , 'r') as arquivo:
             linhas = arquivo.readlines()
 
@@ -42,20 +42,20 @@ class Usuario:
                         print("Usuário foi salvo com sucesso!")
                     
 
-    # def logar(self, user, senha):
-    #     with open (caminho, 'r') as arquivo:
-    #         lista = str(arquivo.readlines())
-    #         print(len(lista))
-    #         for i in range(len(lista)):
-    #             name = user[i].replace("['", "")
-    #             passw = user[i].replace("['", "")
-    #             print(name)
-    #             print(passw)
+    def logar(self, user, senha):
+        userEncontrado = False
 
-    #             if (user == name and senha == passw):
-    #                 return True
-    #             else:
-    #                 return False
+        with open (caminho, 'r') as arquivo:
+            listaUsers = arquivo.readlines()
+        
+            for linha in listaUsers:
+                if ((user in linha) and (senha in linha)):
+                    userEncontrado = True
+
+            if userEncontrado == True:
+                return True
+            else:
+                return False
 
     def exibir(self):
             with open(caminho, 'r') as arquivo:

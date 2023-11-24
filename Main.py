@@ -6,9 +6,7 @@ user = str(input('Usuário: '))
 senha = str(input('Senha: '))
 
 usuario = Usuario(user, senha)
-usuario.salvar("Maria Izabel", "1609")
-
-# verificado = True
+verificado = usuario.logar(user, senha)
 
 # if(verificado == True):
 #     #os.system("cls")
