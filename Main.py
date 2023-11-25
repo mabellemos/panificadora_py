@@ -12,9 +12,11 @@ print('\n\nPANIFICADORA\n')
 # verificado = usuario.logar(user, senha)
 
 # funcionario = Funcionario("Lucas", "1234", "01", "Lucas Souza", "Entregador")
-# funcionario.salvar("01")
-# funcionario = Funcionario("Vitória", "4321", "02", "Vitória Lima", "Caixa")
-# funcionario = Funcionario("José", "7777", "03", "José Silva", "Atendente")
+# funcionario = Funcionario("Vitoria", "6666", "02", "Vitória Lima", "Atentende")
+# funcionario = Funcionario("João", "8888", "03", "João Lucas", "Caixa")
+funcionario = Funcionario("Geral", "5555", "Gerailda", "04", "Vendedora")
+id = (input("\nInforme o id do funcionário que deseja alterar: "))
+funcionario.alterarFunc(id)
 
 # if(verificado == True):
 #     #os.system("cls")
