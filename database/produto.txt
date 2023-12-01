@@ -1,0 +1,6 @@
+paos,0.50,20,perecivel
+paof,0.50,20,perecivel
+paoc,0.50,20,perecivel
+paoca,0.50,20,perecivel
+trident,2.0,20,nao
+tridentMorango,15,2.0,nao

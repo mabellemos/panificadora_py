@@ -1,16 +1,29 @@
-import os
+#Importação das classes
+from Usuario import Usuario
+from Vendas import Vendas
+from Produto import Produto
+from Funcionario import Funcionario
 
+#Arrays
+produtos = []
+funcionarios = []
+vendas = []
+
+#Instanciamento dos objetos
+objProdutos = Produtos()
+objVendas = Vendas()
+objFuncionarios = Funcionarios()
+
+#Entrada no sistema por autenticação
 print('\n\nPANIFICADORA\n')
 
-usuario = str(input('Usuário: '))
+user = str(input('Usuário: '))
 senha = str(input('Senha: '))
 
-#testes
-usuario1 = "izabel"
-senha1 = "1234"
+usuario = Usuario(user, senha)
+verificado = usuario.logar(user, senha)
 
-if(usuario == usuario1 and senha == senha1):
-    #os.system("cls")
+if(verificado == True):
     print('\nBem-vindo ao Sistema\n')
     while True:
         print('\nPANIFICADORA\n')
@@ -19,17 +32,22 @@ if(usuario == usuario1 and senha == senha1):
         
         if(opcaoMenuPrinc == 1):
             print('\nGestão de Produtos\n')
-            print('\n1 - Cadastrar Novo Produto\n2 - Alterar Dados do Produto\n3 - Visualizar Estoque\n4 - Atualizar estoque')
+            print('\n1 - Cadastrar Novo Produto\n2 - Alterar Dados do Produto\n3 - Visualizar Estoque\n4 - Sair')
             opcaoMenuProd = int(input())
 
             if(opcaoMenuProd  == 1):
-                print('cadastro de produtos')
+                numP = int(input("\nInforme quantos produtos deseja cadastrar: "))
+
+                for i in range(numP):
+                    produtos.append(objProdutos.cadastrarProdutos())
+
             elif(opcaoMenuProd == 2):
-                print('alteracao de produtos')
+                idP = int(input("\nInforme o ID do produto que deseja alterar: "))
+                produtos.append(objProdutos.alterarProduto(id))
             elif(opcaoMenuProd  == 3):
-               print('visualizar produtos')
+                produtos.append(objProdutos.mostrarProdutos())
             elif(opcaoMenuProd  == 4):
-                print('atualizar estoque')
+                break
             else:
                 print('\nOpção inválida')
 
@@ -39,11 +57,14 @@ if(usuario == usuario1 and senha == senha1):
             opcaoMenuFunc = int(input())
 
             if(opcaoMenuFunc == 1):
-                print('cadastro de funcionário')
+                quantF = int(input("\nInforme a quantidade de funcionários que deseja cadastrar: "))
+
+                for i in range(quantF):
+                    funcionarios.append(objFuncionarios.salvar())
             elif(opcaoMenuFunc == 2):
-                print('alteracao de funcionarios')
+                funcionarios.append(objFuncionariosalterarFunc())
             elif(opcaoMenuFunc == 3):
-               print('visualizar funcionários')
+                funcionarios.append(objFuncionarios.exibir())
             else:
                 print('\nOpção inválida')
 
@@ -53,11 +74,11 @@ if(usuario == usuario1 and senha == senha1):
             opcaoMenuVend = int(input())
 
             if(opcaoMenuVend == 1):
-                print('cadastro de produtos')
+                vendas.append(objVendas.vender())
             elif( opcaoMenuVend == 2):
-                print('atualizar estoque')
+                vendas.append(objVendas.atualizarEstoque())
             elif(opcaoMenuVend == 2):
-                print('visualizar estoque')
+                produtos.append(objProdutos.mostrarProdutos())
             else:
                 print('\nOpção inválida')
 
