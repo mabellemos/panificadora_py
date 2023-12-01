@@ -3,10 +3,11 @@ from Usuario import Usuario
 
 class Funcionario ():
     def __init__ (self, id, nome, funcao):
-        # super().__init__(user, senha)
         self._id = id
         self._nome = nome
         self._funcao = funcao
+    def __init__ (self):
+        self.inicializar()
 
     #Métodos gets e sets
     def getId(self):
@@ -34,7 +35,6 @@ class Funcionario ():
         self._funcao = str(input("\nInforme a função do funcionário: "))
 
     def salvar(self, id):
-        # super().salvar(user, senha)
         funcEncontrado = False
 
         with open (caminho , 'r') as arquivo:
@@ -59,7 +59,6 @@ class Funcionario ():
     def exibir(self):
             with open(caminho, 'r') as arquivo:
                 print('\nFuncionários do Sistema\n')
-                # super().exibir()
                 for linha in arquivo:    
                     if linha.strip():        
                         id, nome, funcao = linha.strip().split(',')

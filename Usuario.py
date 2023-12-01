@@ -4,6 +4,8 @@ class Usuario:
     def __init__(self, user, senha):
         self._user = user
         self._senha = senha
+    def __init__ (self):
+        self.inicializar()
 
     #Métodos gets e sets
     def getUser(self):
@@ -19,6 +21,10 @@ class Usuario:
         self._senha = senha
 
     #Métodos da classe
+    def inicializar():
+        self._user = str(input("\nInforme o UserName do Usuário: "))
+        self._senha = str(input("\nInforme a senha: "))
+
     def salvar(self, user, senha):
         userEncontrado = False
 
@@ -144,12 +150,3 @@ class Usuario:
                 print("\nDados alterados\n\n")
                 self.exibir()
                 break
-
-'''
-Construtores (com parâmetros e sem)
-Agregação
-Encapsulamento 
-Métodos gets/sets
-Métodos da classe
-Arquivos
-'''

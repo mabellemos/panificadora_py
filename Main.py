@@ -10,9 +10,9 @@ funcionarios = []
 vendas = []
 
 #Instanciamento dos objetos
-objProdutos = Produtos()
+objProdutos = Produto()
 objVendas = Vendas()
-objFuncionarios = Funcionarios()
+objFuncionarios = Funcionario()
 
 #Entrada no sistema por autenticação
 print('\n\nPANIFICADORA\n')

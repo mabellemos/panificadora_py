@@ -1,12 +1,14 @@
 caminho = 'C:\\Users\\Thiago\\Desktop\\Projeto Mauricio\\panificadora_py\\database\\produto.txt'
+
 class Produto:
-    #nome = paof; valor = 0.25; validade = perecível\\não;  
     def __init__(self, id, nome, valor, unidade, validade):
         self._id = id
         self._nome = nome
         self._valor = valor
         self._unidade = unidade
         self._validade = validade
+    def __init__ (self):
+        self.inicializar()
      
     def getId(self): 
         return self._id
@@ -29,6 +31,13 @@ class Produto:
         self._unidade = unidade
     def setValidade(self, validade):
         self._unidade = validade
+
+    def inicializar(self):
+        self._id = int(input("\nInforme o ID do produto: "))
+        self._nome = str(input("\nInforme o nome do produto: "))
+        self._valor = float(input("\nInforme o valor do produto: "))
+        self._unidade = str(input("\nInforme unidade do produto: "))
+        self._validade = str(input("\nInforme a validade do produto: "))
 
     def cadastrarProduto (self): # Cria função de cadastrar produto
         # o "open" abre o arquivo, o "with" serve para após fazermos o que precisamos no arquvio ele ser fechado corretamente. 

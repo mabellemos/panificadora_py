@@ -5,7 +5,9 @@ class Materia:
         self._nome = nome
         self._quantidade = quantidade
         self._fornecedor = fornecedor
-
+    def __init__ (self):
+        self.inicializar()
+    
     def getNome(self):
         return self._nome
     def getQuantidade(self):
@@ -19,6 +21,11 @@ class Materia:
         self._quantidade = quantidade
     def setFornecedor(self, fornecedor):
         self._fornecedor = fornecedor
+
+    def inicializar():
+        self._nome = str(input("\nInforme o nome da matéria-prima: "))
+        self._quantidade = int(input("\nInforme a quantidade da matéroa-prima: "))
+        self._fornecedor = str(input("\nInforme o fornecedor: "))
         
     def cadastrarMateria(self):
         with open (caminho, 'a') as arquivo:
