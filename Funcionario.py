@@ -2,7 +2,7 @@ caminho = '/workspace/panificadora_py/database/funcionarios.txt'
 from Usuario import Usuario
 
 class Funcionario ():
-    def __init__ (self, user, senha, id, nome, funcao):
+    def __init__ (self, id, nome, funcao):
         # super().__init__(user, senha)
         self._id = id
         self._nome = nome
@@ -28,8 +28,12 @@ class Funcionario ():
         self._funcao = funcao
 
     #Métodos da classe
-    def salvar(self, id):
+    def inicializar():
+        self._id = id + 1
+        self._nome = str(input("\nInforme o nome do funcionário: "))
+        self._funcao = str(input("\nInforme a função do funcionário: "))
 
+    def salvar(self, id):
         # super().salvar(user, senha)
         funcEncontrado = False
 
@@ -99,7 +103,7 @@ class Funcionario ():
                         arquivo.writelines(linhasSalvas)
             
                     with open (caminho, 'a') as arquivo:
-                        arquivo.write(f"\n{id}, {nome}, {funcao}\n")
+                        arquivo.write(f"\n{self._id}, {self._nome}, {self._funcao}\n")
                         print("\nNome alterado com sucesso!")
                         self.exibir()
                 else:

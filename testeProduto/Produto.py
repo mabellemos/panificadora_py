@@ -7,7 +7,7 @@ class Produto:
         self._valor = valor
         self._unidade = unidade
         self._validade = validade
-    
+     
     def getId(self): 
         return self._id
     def getNome(self): 
