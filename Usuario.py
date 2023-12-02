@@ -4,8 +4,8 @@ class Usuario:
     def __init__(self, user, senha):
         self._user = user
         self._senha = senha
-    def __init__ (self):
-        self.inicializar()
+    # def __init__ (self):
+    #     self.inicializar()
 
     #Métodos gets e sets
     def getUser(self):

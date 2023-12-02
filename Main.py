@@ -9,20 +9,15 @@ produtos = []
 funcionarios = []
 vendas = []
 
-#Instanciamento dos objetos
-objProdutos = Produto()
-objVendas = Vendas()
-objFuncionarios = Funcionario()
-
 #Entrada no sistema por autenticação
-print('\n\nPANIFICADORA\n')
+# print('\n\nPANIFICADORA\n')
 
-user = str(input('Usuário: '))
-senha = str(input('Senha: '))
+# user = str(input('Usuário: '))
+# senha = str(input('Senha: '))
 
-usuario = Usuario(user, senha)
-verificado = usuario.logar(user, senha)
-
+# usuario = Usuario(user, senha)
+# verificado = usuario.logar(user, senha)
+verificado = True
 if(verificado == True):
     print('\nBem-vindo ao Sistema\n')
     while True:
@@ -37,15 +32,40 @@ if(verificado == True):
 
             if(opcaoMenuProd  == 1):
                 numP = int(input("\nInforme quantos produtos deseja cadastrar: "))
-
+                print("\nCADASTRO DE PRODUTOS\n")
                 for i in range(numP):
-                    produtos.append(objProdutos.cadastrarProdutos())
+                    objProdutos = Produto()
 
+                    # dic = {
+                    #     "id": objProdutos.getId(),
+                    #     "nome": objProdutos.getNome(),
+                    #     "valor": objProdutos.getValor(),
+                    #     "unidade": objProdutos.getUnidade(),
+                    #     "validade": objProdutos.getValidade()
+                    # }
+                    
+
+                    objProdutos.cadastrarProduto()
+                    produtos.append(objProdutos)
             elif(opcaoMenuProd == 2):
                 idP = int(input("\nInforme o ID do produto que deseja alterar: "))
-                produtos.append(objProdutos.alterarProduto(id))
+                
+                for i in range(len(produtos)):
+                    if (produtos[i].getId() == idP):
+                        nome = str(input("\nInforme o novo nome do produto: "))
+                        valor = float(input("\nInforme o novo valor do produto: "))
+                        unidade = str(input("\nInforme a nova unidade do produto: "))
+                        validade = str(input("\nInforme a nova validade do produto: "))
+                         
+                        produtos[i].setNome(nome)
+                        produtos[i].setValor(valor)
+                        produtos[i].setUnidade(unidade)
+                        produtos[i].setValidade(validade)
+
+                        produtos[i].alterarProduto(idP)
             elif(opcaoMenuProd  == 3):
-                produtos.append(objProdutos.mostrarProdutos())
+                for i in range(len(produtos)):
+                    produtos[i].mostrarProdutos()
             elif(opcaoMenuProd  == 4):
                 break
             else:

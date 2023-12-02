@@ -1,4 +1,5 @@
-caminho = 'C:\\Users\\Thiago\\Desktop\\Projeto Mauricio\\panificadora_py\\database\\produto.txt'
+# caminho = 'C:\\Users\\Thiago\\Desktop\\Projeto Mauricio\\panificadora_py\\database\\produto.txt'
+caminho = 'database/produto.txt'
 
 class Produto:
     def __init__(self, id, nome, valor, unidade, validade):
@@ -46,8 +47,9 @@ class Produto:
         with open (caminho , 'a') as arquivo:
             # o "arquivo.write" serve para falar que vou escrever (por isso o write) dentro do .txt (representado pela varíavel arquivo)
             # a varável "self._nome", recebe o valor da váriavel nome que foi guardada num obejto da classe produto criado no cadastro 
-            arquivo.write(f"{self._id},{self._nome},{self._valor},{self._unidade},{self._validade}")
+            arquivo.write(f"\n{self._id},{self._nome},{self._valor},{self._unidade},{self._validade}")
             print("Produto foi cadastrado com sucesso!")
+       
     @staticmethod
     def mostrarProdutos(): #Cria uma função para mostrar os prdutos no estoque
             # o open serve para abrir o arquivo, o "with" serve para depois que finalizarmos o arquivo seja fechado corretamente
