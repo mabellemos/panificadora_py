@@ -156,15 +156,20 @@ def MenuDeProduto():
     elif(opcaoMenuProd == 4):
         MenuPrincipal()
 
-def MenuDeFuncionario():
+def MenuDeFuncionario():    
+    # condicao = True
+
     print("\nMenu de Funcionários")
     print('\n1 - Cadastrar Novo Funcionário\n2 - Alterar Dados do Funcionário\n3 - Visualizar Funcionários\n4 - Sair')
     opcaoMenuFunc = int(input())
 
     if(opcaoMenuFunc ==1 ):
-        print("teste")
+        quantF = int(input("\nInforme a quantidade de funcionários que deseja cadastrar: "))
+        for i in range(quantF):
+            funcionarios.append(objFuncionarios.salvar())
     elif(opcaoMenuFunc == 2):
-        print("rest")
+        id = (input("\nInforme o ID do funcionário que deseja alterar: "))
+        Funcionario.alterarFunc(id)
     elif(opcaoMenuFunc == 3):
         Funcionario.exibir()
     elif(opcaoMenuFunc == 4):

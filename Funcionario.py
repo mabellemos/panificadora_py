@@ -1,4 +1,4 @@
-caminho = "database/funcionarios.txt"
+caminho = "database//funcionarios.txt"
 
 from Usuario import Usuario
 
@@ -80,12 +80,11 @@ class Funcionario ():
             arquivo.writelines(linhasSalvas)
             print("\nFuncionário excluído do sistema!")
 
-    def alterarFunc(self, id):
+    def alterarFunc(id):
         opc = int(input("\nAlteração de Dados do Funcionário\n\nInforme a informação a ser alterada:\n\n1 - Nome\n2 - Função\n"))
 
         if(opc == 1):
             novoNome = str(input("\nInforme o novo nome do funcionário: "))
-            self.setNome(novoNome)
 
             with open(caminho, 'r') as arquivo:
                 linhas = arquivo.readlines()
@@ -94,25 +93,27 @@ class Funcionario ():
                 funcEncontrado = False
             
                 for linha in linhas:
-                    if id not in linha:
+
+                    verifcação = linha.split(",")
+
+                    if id.strip() != verifcação[0].strip():
                         linhasSalvas.append(linha)
                     else:
                         funcEncontrado = True
-
+                        verifcação[1] = novoNome
+                        novaLinha = ','.join(verifcação)
+                        linhasSalvas.append(novaLinha)
+                        
                 if funcEncontrado:
                     with open (caminho, 'w') as arquivo:
-                        arquivo.writelines(linhasSalvas)
-            
-                    with open (caminho, 'a') as arquivo:
-                        arquivo.write(f"\n{self._id}, {self._nome}, {self._funcao}\n")
+                        arquivo.writelines(linhasSalvas)                                    
                         print("\nNome alterado com sucesso!")
-                        self.exibir()
+
                 else:
                     print("\nFuncionário não foi encontrado")
 
         elif(opc == 2):
             novaFuncao = str(input("\nInforme a nova função do funcionário: "))
-            self.setFuncao(novaFuncao)
 
             with open(caminho, 'r') as arquivo:
                 linhas = arquivo.readlines()
@@ -121,7 +122,10 @@ class Funcionario ():
                 funcEncontrado = False
             
                 for linha in linhas:
-                    if id not in linha:
+
+                    verifcação = linha.split(",")
+
+                    if id.strip() != verifcação[0].strip():
                         linhasSalvas.append(linha)
                     else:
                         funcEncontrado = True
