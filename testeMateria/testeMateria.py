@@ -1,5 +1,7 @@
-from Materia import Materia
 
+
+
+from functions.Materia import Materia
 
 
 condicao = True

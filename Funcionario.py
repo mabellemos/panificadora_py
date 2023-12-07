@@ -1,4 +1,5 @@
-caminho = '/workspace/panificadora_py/database/funcionarios.txt'
+caminho = "database/funcionarios.txt"
+
 from Usuario import Usuario
 
 class Funcionario ():
@@ -56,7 +57,7 @@ class Funcionario ():
                         arquivo.write(f"{self._id},{self._nome},{self._funcao}\n")
                         print("Funcionário foi salvo com sucesso!")
 
-    def exibir(self):
+    def exibir():
             with open(caminho, 'r') as arquivo:
                 print('\nFuncionários do Sistema\n')
                 # super().exibir()

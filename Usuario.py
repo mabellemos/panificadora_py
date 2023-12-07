@@ -1,4 +1,4 @@
-caminho = '/workspace/panificadora_py/database/usuarios.txt'
+caminho = 'C:\\Users\\Thiago\\Desktop\\Agora\\panificadora_py\\database\\usuarios.txt'
 
 class Usuario:
     def __init__(self, user, senha):
