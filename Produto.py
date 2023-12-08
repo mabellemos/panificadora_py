@@ -34,7 +34,7 @@ class Produto:
         self._unidade = validade
 
     def inicializar(self):
-        self._id = int(input("\nInforme o ID do produto: "))
+        self._id = str(input("\nInforme o ID do produto: "))
         self._nome = str(input("\nInforme o nome do produto: "))
         self._valor = float(input("\nInforme o valor do produto: "))
         self._unidade = str(input("\nInforme unidade do produto: "))
@@ -48,7 +48,7 @@ class Produto:
             # o "arquivo.write" serve para falar que vou escrever (por isso o write) dentro do .txt (representado pela varíavel arquivo)
             # a varável "self._nome", recebe o valor da váriavel nome que foi guardada num obejto da classe produto criado no cadastro 
             arquivo.write(f"\n{self._id},{self._nome},{self._valor},{self._unidade},{self._validade}")
-            print("Produto foi cadastrado com sucesso!")
+            print("\nProduto foi cadastrado com sucesso!\n")
        
     @staticmethod
     def mostrarProdutos(): #Cria uma função para mostrar os prdutos no estoque
@@ -56,7 +56,7 @@ class Produto:
             # "caminho" é a variável que contem o Path do arquvio .txt, e 'r' é o mode que ele será aebrto, "r" é modo de leitura
             # "as arquivo" serve para guardar o .txt na varável arquivo para podermos manipular ele  
             with open(caminho, 'r') as arquivo:
-                print("Lista de Produtos:")
+                print("\n------Lista de Produtos------\n")
                 # esse for vai percorrer cada linha do arquivo
                 for linha in arquivo:
                     # pimeiro: o if serve para verificar se a linha após remover espaços não está vazia, caso não tenha isso o o código após pegar todas as linhas do arquivo com algo, tentaria ler a linha vazia a seguir, o que gera um erro
@@ -105,7 +105,7 @@ class Produto:
         
                 with open (caminho, 'a') as arquivo:
                     arquivo.write(f"\n{self._nome},{self._valor},{self._unidade},{self._validade}")
-                    print("Produto foi alterado com sucesso!")    
+                    print("\nProduto foi alterado com sucesso!")    
             else:
-                print("Produto não foi encontrado")                    
+                print("\nProduto não foi encontrado")                    
 

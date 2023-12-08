@@ -1,2 +1,7 @@
 01,Lucas Souza,Entregador
-Gerailda, Nice, Vendedora
+02,Lucio,Vendedor
+03,Maria,Atentente
+04,Bianca,Entregadora
+05,Luis,Vendedor
+06,Sergio,Caixa
+07,Izabel,Caixa

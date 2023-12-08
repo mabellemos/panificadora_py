@@ -27,7 +27,7 @@ if(verificado == True):
         
         if(opcaoMenuPrinc == 1):
             print('\nGestão de Produtos\n')
-            print('\n1 - Cadastrar Novo Produto\n2 - Alterar Dados do Produto\n3 - Visualizar Estoque\n4 - Sair')
+            print('\n1 - Cadastrar Novo Produto\n2 - Alterar Dados do Produto\n3 - Visualizar Estoque\n4 - Sair\n')
             opcaoMenuProd = int(input())
 
             if(opcaoMenuProd  == 1):
@@ -35,15 +35,6 @@ if(verificado == True):
                 print("\nCADASTRO DE PRODUTOS\n")
                 for i in range(numP):
                     objProdutos = Produto()
-
-                    # dic = {
-                    #     "id": objProdutos.getId(),
-                    #     "nome": objProdutos.getNome(),
-                    #     "valor": objProdutos.getValor(),
-                    #     "unidade": objProdutos.getUnidade(),
-                    #     "validade": objProdutos.getValidade()
-                    # }
-                    
 
                     objProdutos.cadastrarProduto()
                     produtos.append(objProdutos)
@@ -61,8 +52,9 @@ if(verificado == True):
                         produtos[i].setValor(valor)
                         produtos[i].setUnidade(unidade)
                         produtos[i].setValidade(validade)
-
                         produtos[i].alterarProduto(idP)
+
+                        print("\nProduto alterado com sucesso!\n")
             elif(opcaoMenuProd  == 3):
                 for i in range(len(produtos)):
                     produtos[i].mostrarProdutos()
@@ -73,24 +65,41 @@ if(verificado == True):
 
         if(opcaoMenuPrinc == 2):
             print('\nGestão de Funcionários\n')
-            print('\n1 - Cadastrar Novo Funcionário\n2 - Alterar Dados do Funcionário\n3 - Visualizar Funcionários')
+            print('\n1 - Cadastrar Novo Funcionário\n2 - Alterar Dados do Funcionário\n3 - Visualizar Funcionários\n')
             opcaoMenuFunc = int(input())
 
             if(opcaoMenuFunc == 1):
                 quantF = int(input("\nInforme a quantidade de funcionários que deseja cadastrar: "))
 
+                print("\n------CADASTRO DE FUNCIONÁRIOS------\n")
                 for i in range(quantF):
-                    funcionarios.append(objFuncionarios.salvar())
+                    objFuncionarios = Funcionario()
+
+                    idF = objFuncionarios.getId()
+                    
+                    objFuncionarios.salvar(idF)
+                    funcionarios.append(objFuncionarios)
             elif(opcaoMenuFunc == 2):
-                funcionarios.append(objFuncionariosalterarFunc())
+                idF = str(input("\nInforme o ID do funcionário que deseja alterar: "))
+                
+                for i in range(len(funcionarios)):
+                    if (funcionarios[i].getId() == idF):
+                        nome = str(input("\nInforme o novo nome do funcionário: "))
+                        funcao = str(input("\nInforme a nova função do funcionário: "))
+                         
+                        funcionarios[i].setNome(nome)
+                        funcionarios[i].setValor(funcao)
+
+                        print("\nFuncionário alterado com sucesso!")
             elif(opcaoMenuFunc == 3):
-                funcionarios.append(objFuncionarios.exibir())
+                for i in range(len(funcionarios)):
+                    funcionarios[i].exibir()
             else:
                 print('\nOpção inválida')
 
         if(opcaoMenuPrinc == 3):
             print('\nGestão de Vendas\n')
-            print('\n1 - Caixa\n2 - Atualizar Estoque\n3 - Visualizar Estoque')
+            print('\n1 - Caixa\n2 - Atualizar Estoque\n3 - Visualizar Estoque\n')
             opcaoMenuVend = int(input())
 
             if(opcaoMenuVend == 1):

@@ -29,8 +29,8 @@ class Funcionario ():
         self._funcao = funcao
 
     #Métodos da classe
-    def inicializar():
-        self._id = id + 1
+    def inicializar(self):
+        self._id = str(input("\nInforme o ID do funcionário: "))
         self._nome = str(input("\nInforme o nome do funcionário: "))
         self._funcao = str(input("\nInforme a função do funcionário: "))
 
@@ -42,8 +42,8 @@ class Funcionario ():
 
             if (len(linhas) == 0):
                 with open (caminho , 'a') as arquivo:
-                    arquivo.write(f"{self._id},{self._nome},{self._funcao}\n")
-                    print("Funcionário foi salvo com sucesso!")
+                    arquivo.write(f"\n{self._id},{self._nome},{self._funcao}\n")
+                    print("\nFuncionário foi salvo com sucesso!")
             else:
                 for linha in linhas:
                     if id in linha:
@@ -53,8 +53,8 @@ class Funcionario ():
                     print("\nNão foi possível cadastrar o funcionário no sistema. Tente novamente!")
                 else:
                     with open (caminho , 'a') as arquivo:
-                        arquivo.write(f"{self._id},{self._nome},{self._funcao}\n")
-                        print("Funcionário foi salvo com sucesso!")
+                        arquivo.write(f"\n{self._id},{self._nome},{self._funcao}")
+                        print("\nFuncionário foi salvo com sucesso!")
 
     def exibir(self):
             with open(caminho, 'r') as arquivo:
