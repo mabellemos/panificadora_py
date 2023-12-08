@@ -93,8 +93,8 @@
 
 # Imports
 
-from Funcionario import Funcionario
-from Usuario import Usuario
+from functions.Funcionario import Funcionario
+from functions.Usuario import Usuario
 from functions.Produto import Produto
 
 # Menus 
@@ -164,14 +164,19 @@ def MenuDeFuncionario():
     opcaoMenuFunc = int(input())
 
     if(opcaoMenuFunc ==1 ):
-        quantF = int(input("\nInforme a quantidade de funcionários que deseja cadastrar: "))
-        for i in range(quantF):
-            funcionarios.append(objFuncionarios.salvar())
+        print("Adicione os dados do funcionário\n")
+        id = (input("\nAdicionar o id do funcionário:"))
+        nome = input("\nAdicione o nome do funcionário:")
+        func = input("\nAdicione o a função do funcionário:")
+        funcionario = Funcionario(id, nome, func)
+        funcionario.salvar()
     elif(opcaoMenuFunc == 2):
         id = (input("\nInforme o ID do funcionário que deseja alterar: "))
         Funcionario.alterarFunc(id)
+        MenuDeFuncionario()
     elif(opcaoMenuFunc == 3):
         Funcionario.exibir()
+        MenuDeFuncionario()
     elif(opcaoMenuFunc == 4):
         MenuPrincipal()
 

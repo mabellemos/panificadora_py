@@ -26,28 +26,15 @@ class Produto:
     def setValidade(self, validade):
         self._unidade = validade
 
-    def cadastrarProduto (self): # Cria função de cadastrar produto
-        # o "open" abre o arquivo, o "with" serve para após fazermos o que precisamos no arquvio ele ser fechado corretamente. 
-        # "caminho" é uma varíavel que guarda o Path do .txt, 'a' é o modo que o arquivo será aberto o "a" significa que será para adição
-        # "as arquivo" serve parar falar que estou atribuindo o arquivo aberto na variável arquivo para manipular ele
-        with open (caminho , 'a') as arquivo:
-            # o "arquivo.write" serve para falar que vou escrever (por isso o write) dentro do .txt (representado pela varíavel arquivo)
-            # a variável "self._nome", recebe o valor da váriavel nome que foi guardada num obejto da classe produto criado no cadastro 
-            arquivo.write(f"{self._nome},{self._valor},{self._unidade},{self._validade}")
+    def cadastrarProduto (self): 
+        with open (caminho , 'a') as arquivo: 
+            arquivo.write(f"\n{self._nome},{self._valor},{self._unidade},{self._validade}")
             print("\nProduto foi cadastrado com sucesso!")
     @staticmethod
-    def mostrarProdutos(): #Cria uma função para mostrar os prdutos no estoque
-            # o open serve para abrir o arquivo, o "with" serve para depois que finalizarmos o arquivo seja fechado corretamente
-            # "caminho" é a variável que contem o Path do arquvio .txt, e 'r' é o mode que ele será aebrto, "r" é modo de leitura
-            # "as arquivo" serve para guardar o .txt na varável arquivo para podermos manipular ele  
+    def mostrarProdutos(): 
             with open(caminho, 'r') as arquivo:
                 print("Lista de Produtos:")
-                # esse for vai percorrer cada linha do arquivo
-                for linha in arquivo:
-                    # pimeiro: o if serve para verificar se a linha após remover espaços não está vazia, caso não tenha isso o o código após pegar todas as linhas do arquivo com algo, tentaria ler a linha vazia a seguir, o que gera um erro
-                    # segundo: linha.strip().split(','). O "strip()" vai retirar possíveis espaços em brancos no começo e no final 
-                    # da string, o split vai separar a string em uma lista, usando a ',' como delimitador exemplo ["paoc","0.50", "20"]
-                    # e após isso é atribuido as varáveis os elementos da lista na ordem.            
+                for linha in arquivo:        
                     if linha.strip():        
                         nome, valor, unidade, validade = linha.strip().split(',')
                         print(f"Nome: {nome}, Valor: {valor}, Unidade: {unidade}, Validade: {validade}")
