@@ -1,2 +1,2 @@
-01,Lucas Souza,Entregador
-Gerailda, Nice, Vendedora
+01,Lucas,Entregador
+02,Gerailda,Vendedora
