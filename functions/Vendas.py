@@ -78,12 +78,12 @@ class Vendas:
                     valorFinal = valorFinal + (quant*float(verificacao[1]))
                     novaLinha = ','.join(verificacao)
 
-                    if produtoEncontrado:
-                        with open (caminho, 'w') as arquivo:
-                            arquivo.writelines(linhasSalvas)                                    
-                            print(f"\nEstoque do produto atualizado!")
-                        with open (caminho, 'a') as arquivo:
-                            arquivo.write(f"\n{novaLinha}")
+            if produtoEncontrado:
+                with open (caminho, 'w') as arquivo:
+                    arquivo.writelines(linhasSalvas)                                    
+                    print(f"\nEstoque do produto atualizado!")
+                with open (caminho, 'a') as arquivo:
+                    arquivo.write(f"\n{novaLinha}")
 
             print(f"\nCOMPRA\nTotal = {valorFinal}")
 
