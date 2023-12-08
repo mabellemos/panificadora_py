@@ -74,15 +74,16 @@ class Vendas:
                     linhasSalvas.append(linha)
                 else:
                     produtoEncontrado = True
-                    verificacao[2] = prodNome
+                    verificacao[2] = str(int(verificacao[2]) - quant)
+                    valorFinal = valorFinal + (quant*float(verificacao[1]))
                     novaLinha = ','.join(verificacao)
 
                     if produtoEncontrado:
                         with open (caminho, 'w') as arquivo:
                             arquivo.writelines(linhasSalvas)                                    
                             print(f"\nEstoque do produto atualizado!")
-
-            valorFinal = valorFinal + (quant*int(verificacao[1]))
+                        with open (caminho, 'a') as arquivo:
+                            arquivo.write(f"\n{novaLinha}")
 
             print(f"\nCOMPRA\nTotal = {valorFinal}")
 
