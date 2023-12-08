@@ -1,4 +1,4 @@
-caminho = "database//funcionarios.txt"
+caminho = "database/funcionarios.txt"
 
 from functions.Usuario import Usuario
 

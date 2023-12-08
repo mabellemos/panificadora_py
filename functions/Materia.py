@@ -1,4 +1,4 @@
-caminho = 'database\materia.txt'
+caminho = 'database/materia.txt'
 
 class Materia:
     def __init__(self, nome, quantidade, fornecedor):

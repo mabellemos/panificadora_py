@@ -1,4 +1,4 @@
-caminho = 'database\produto.txt'
+caminho = 'database/produto.txt'
 
 class Produto:
     #nome = paof; valor = 0.25; validade = perecível\\não;  

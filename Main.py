@@ -194,7 +194,5 @@ if(verificado == True):
     print('\nBem-vindo ao Sistema\n')
 
     MenuPrincipal()
-
-
-
-
+else:
+    print("\nNão foi possível entrar no sistema. Tente Novamente!\n")

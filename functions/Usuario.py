@@ -1,4 +1,4 @@
-caminho = 'database\\usuarios.txt'
+caminho = 'database/usuarios.txt'
 
 class Usuario:
     def __init__(self, user, senha):
@@ -27,8 +27,8 @@ class Usuario:
 
             if (len(linhas) == 0):
                 with open (caminho , 'a') as arquivo:
-                    arquivo.write(f"{user},{senha}\n")
-                    print("Usuário foi salvo com sucesso!")
+                    arquivo.write(f"\n{user},{senha}")
+                    print("\nUsuário foi salvo com sucesso!")
             else:
                 for linha in linhas:
                     if user in linha:
@@ -39,7 +39,7 @@ class Usuario:
                 else:
                     with open (caminho , 'a') as arquivo:
                         arquivo.write(f"{user},{senha}\n")
-                        print("Usuário foi salvo com sucesso!")
+                        print("\nUsuário foi salvo com sucesso!")
                     
 
     def logar(self, user, senha):
