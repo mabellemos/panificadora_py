@@ -1,6 +1,11 @@
-paos,0.50,20,perecivel
 paof,0.50,20,perecivel
-paoc,0.50,20,perecivel
 paoca,0.50,20,perecivel
 trident,2.0,20,nao
 tridentMorango,15,2.0,nao
+arroz,4,4.0,perecivel
+thiago,6.0,6,perecivel
+
+
+paoc,6.0,5,perecivel
+arroz,6,45.0,nao perecivel
+arroz,7,56.0,perecivel

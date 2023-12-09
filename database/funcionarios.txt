@@ -1,2 +1,3 @@
 01,Lucas,Entregador
 02,Gerailda,Vendedora
+03,maria,Vendedor

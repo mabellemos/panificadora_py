@@ -4,7 +4,6 @@ from functions.Usuario import Usuario
 
 class Funcionario ():
     def __init__ (self, id, nome, funcao):
-        # super().__init__(user, senha)
         self._id = id
         self._nome = nome
         self._funcao = funcao
@@ -29,7 +28,6 @@ class Funcionario ():
         self._funcao = funcao
 
     def salvar(self):
-        # super().salvar(user, senha)
         funcEncontrado = False
 
         with open (caminho , 'r') as arquivo:
@@ -37,24 +35,23 @@ class Funcionario ():
 
             if (len(linhas) == 0):
                 with open (caminho , 'a') as arquivo:
-                    arquivo.write(f"\n{self._id},{self._nome},{self._funcao}\n")
-                    print("Funcionário foi salvo com sucesso!")
+                    arquivo.write(f"\n{self._id},{self._nome},{self._funcao}")
+                    print("\nFuncionário foi salvo com sucesso!\n")
             else:
                 for linha in linhas:
                     if self._id in linha:
                        funcEncontrado = True
 
                 if funcEncontrado == True:
-                    print("\nNão foi possível cadastrar o funcionário no sistema. Tente novamente!")
+                    print("\nNão foi possível cadastrar o funcionário no sistema. Tente novamente!\n")
                 else:
                     with open (caminho , 'a') as arquivo:
                         arquivo.write(f"\n{self._id},{self._nome},{self._funcao}\n")
-                        print("Funcionário foi salvo com sucesso!")
+                        print("\nFuncionário foi salvo com sucesso!")
 
     def exibir():
             with open(caminho, 'r') as arquivo:
                 print('\nFuncionários do Sistema\n')
-                # super().exibir()
                 for linha in arquivo:    
                     if linha.strip():        
                         id, nome, funcao = linha.strip().split(',')

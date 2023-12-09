@@ -87,24 +87,16 @@ def MenuDeFuncionario():
 
 def menuVendas():
     while True:
-
-        opc = int(input("\n------- MENU VENDAS ------\n\n1 - Caixa\n2 - Atualizar Estoque\n"))
-
-        if (opc == 1):
-            Vendas.vender()
-        elif (opc == 2):
-            id = input("\nInforme o ID do produto: ")
-            quant = int(input("\nInforme a nova quantidade do produto: "))
-            Vendas.atualizarEstoque(id, quant)
-        else:
-            print("\nOpção inválida!\n")
-
+      
+        Vendas.vender()
+      
         resp = str(input("\nDeseja realizar outra opção? (sim/não)\n"))
         if (resp.lower() == 'nao'):
             break
 # Código
 
 print('\n\n--------PANIFICADORA--------\n')
+
 
 user = str(input('Usuário: '))
 senha = str(input('Senha: '))

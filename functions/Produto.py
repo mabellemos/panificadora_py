@@ -1,7 +1,6 @@
 caminho = 'database/produto.txt'
 
 class Produto:
-    #nome = paof; valor = 0.25; validade = perecível\\não;  
     def __init__(self, nome, valor, unidade, validade):
         self._nome = nome
         self._valor = valor
